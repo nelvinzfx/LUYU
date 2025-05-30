@@ -44,6 +44,211 @@
       from { transform: translateX(-100%); opacity: 0; }
       to { transform: translateX(0); opacity: 1; }
       }
+      /* Base Preloader Styles */
+      .preloader-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 25%, #f0f9ff 75%, #eff6ff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      overflow: hidden;
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .preloader-overlay.fade-out {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.1);
+      }
+      .preloader-container {
+      text-align: center;
+      position: relative;
+      z-index: 10;
+      animation: containerFadeIn 1s ease-out;
+      }
+      /* Logo Styles */
+      .preloader-logo {
+      margin-bottom: 2rem;
+      }
+      .logo-icon {
+      display: inline-block;
+      animation: logoFloat 3s ease-in-out infinite;
+      filter: drop-shadow(0 10px 20px rgba(16, 185, 129, 0.3));
+      }
+      .logo-icon svg {
+      animation: logoRotate 4s linear infinite;
+      }
+      .logo-custom {
+      display: inline-block;
+      animation: logoFloat 3s ease-in-out infinite;
+      }
+      .logo-custom img {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      object-fit: contain;
+      }
+      .hidden { display: none; }
+      /* Text Styles */
+      .app-title {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #10b981, #059669, #3b82f6);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.1em;
+      animation: gradientShift 3s ease-in-out infinite;
+      }
+      .app-subtitle {
+      font-size: 1.125rem;
+      color: #6b7280;
+      font-weight: 500;
+      opacity: 0.8;
+      margin-bottom: 2.5rem;
+      }
+      /* Loading Dots */
+      .loading-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      }
+      .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10b981, #3b82f6);
+      animation: dotPulse 1.5s ease-in-out infinite;
+      }
+      .dot-2 { animation-delay: 0.2s; }
+      .dot-3 { animation-delay: 0.4s; }
+      .loading-status {
+      font-size: 0.875rem;
+      color: #6b7280;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      }
+      /* Progress Bar */
+      .preloader-progress {
+      width: 280px;
+      margin: 0 auto;
+      }
+      .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background-color: rgba(16, 185, 129, 0.2);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+      }
+      .progress-fill-animation {
+      height: 100%;
+      background: linear-gradient(90deg, #10b981, #059669, #3b82f6);
+      border-radius: 10px;
+      width: 0%;
+      transition: width 0.3s ease;
+      }
+      .progress-text {
+      font-size: 0.75rem;
+      color: #10b981;
+      font-weight: 600;
+      }
+      /* Background Pattern */
+      .preloader-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      opacity: 0.1;
+      z-index: 1;
+      }
+      .pattern-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10b981, #3b82f6);
+      opacity: 0.3;
+      }
+      .circle-1 {
+      width: 300px;
+      height: 300px;
+      top: -150px;
+      right: -150px;
+      animation: circleFloat1 8s ease-in-out infinite;
+      }
+      .circle-2 {
+      width: 200px;
+      height: 200px;
+      bottom: -100px;
+      left: -100px;
+      animation: circleFloat2 6s ease-in-out infinite reverse;
+      }
+      .circle-3 {
+      width: 150px;
+      height: 150px;
+      top: 20%;
+      left: -75px;
+      animation: circleFloat3 10s ease-in-out infinite;
+      }
+      /* Animations */
+      @keyframes containerFadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      }
+      @keyframes logoRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+      }
+      @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      }
+      @keyframes dotPulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.7; }
+      }
+      @keyframes circleFloat1 {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      33% { transform: translate(-30px, -30px) rotate(120deg); }
+      66% { transform: translate(30px, -15px) rotate(240deg); }
+      }
+      @keyframes circleFloat2 {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(20px, -40px) rotate(180deg); }
+      }
+      @keyframes circleFloat3 {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(40px, 20px) rotate(90deg); }
+      50% { transform: translate(20px, -30px) rotate(180deg); }
+      75% { transform: translate(-20px, 10px) rotate(270deg); }
+      }
+      /* Dark Mode Support */
+      .dark .preloader-overlay {
+      background: linear-gradient(135deg, #111827 0%, #1f2937 25%, #374151 75%, #1f2937 100%);
+      }
+      .dark .app-subtitle,
+      .dark .loading-status {
+      color: #d1d5db;
+      }
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+      .app-title { font-size: 2.5rem; }
+      .app-subtitle { font-size: 1rem; }
+      .logo-icon svg, .logo-custom img { width: 60px; height: 60px; }
+      .preloader-progress { width: 240px; }
+      }
       .switch {
       position: relative;
       display: inline-block;
@@ -1026,6 +1231,56 @@
     </style>
   </head>
   <body class="bg-gray-50 min-h-screen font-sans">
+    <!-- PRELOADER -->
+    <div id="preloader" class="preloader-overlay">
+      <div class="preloader-container">
+        <!-- Logo Area -->
+        <div class="preloader-logo">
+          <div id="default-logo" class="logo-icon">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none">
+              <defs>
+                <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#10b981"/>
+                  <stop offset="50%" style="stop-color:#059669"/>
+                  <stop offset="100%" style="stop-color:#3b82f6"/>
+                </linearGradient>
+              </defs>
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="url(#logoGradient)"/>
+            </svg>
+          </div>
+          <div id="custom-logo" class="logo-custom hidden">
+            <img id="custom-logo-img" src="" alt="LUYU Logo" />
+          </div>
+        </div>
+        <!-- App Name -->
+        <div class="preloader-text">
+          <h1 id="app-name" class="app-title">LUYU</h1>
+          <p id="app-tagline" class="app-subtitle">Ojek Online Syariah</p>
+        </div>
+        <!-- Loading Animation -->
+        <div class="preloader-loading">
+          <div class="loading-dots">
+            <div class="dot dot-1"></div>
+            <div class="dot dot-2"></div>
+            <div class="dot dot-3"></div>
+          </div>
+          <p id="loading-text" class="loading-status">Memuat aplikasi...</p>
+        </div>
+        <!-- Progress Bar -->
+        <div class="preloader-progress">
+          <div class="progress-bar-container">
+            <div id="progress-fill" class="progress-fill-animation"></div>
+          </div>
+          <span id="progress-percentage" class="progress-text">0%</span>
+        </div>
+      </div>
+      <!-- Background Pattern -->
+      <div class="preloader-pattern">
+        <div class="pattern-circle circle-1"></div>
+        <div class="pattern-circle circle-2"></div>
+        <div class="pattern-circle circle-3"></div>
+      </div>
+    </div>
     <!-- NOTIFICATION SYSTEM -->
     <div id="notification-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
     <!-- LOADING OVERLAY -->
@@ -8900,6 +9155,208 @@
       updateThemeSpecificContent();
       }, 500);
       });
+      
+      class PreloaderManager {
+      constructor(options = {}) {
+        this.options = {
+            duration: 3000,
+            showProgress: true,
+            autoHide: true,
+            customLogo: null,
+            appName: 'LUYU',
+            tagline: 'Ojek Online Syariah',
+            loadingTexts: [
+                'Memuat aplikasi...',
+                'Menyiapkan interface...',
+                'Menghubungkan server...',
+                'Hampir selesai...'
+            ],
+            onComplete: null,
+            ...options
+        };
+        
+        this.currentProgress = 0;
+        this.currentTextIndex = 0;
+        this.progressInterval = null;
+        this.textInterval = null;
+        
+        this.init();
+      }
+      
+      init() {
+        this.setupCustomization();
+        this.startProgress();
+        this.startTextRotation();
+        
+        if (this.options.autoHide) {
+            this.startAutoHide();
+        }
+      }
+      
+      setupCustomization() {
+        const appNameEl = document.getElementById('app-name');
+        const taglineEl = document.getElementById('app-tagline');
+        
+        if (appNameEl) appNameEl.textContent = this.options.appName;
+        if (taglineEl) taglineEl.textContent = this.options.tagline;
+        
+        if (this.options.customLogo) {
+            this.setCustomLogo(this.options.customLogo);
+        }
+      }
+      
+      setCustomLogo(logoSrc) {
+        const defaultLogo = document.getElementById('default-logo');
+        const customLogo = document.getElementById('custom-logo');
+        const customImg = document.getElementById('custom-logo-img');
+        
+        if (defaultLogo && customLogo && customImg) {
+            defaultLogo.classList.add('hidden');
+            customLogo.classList.remove('hidden');
+            customImg.src = logoSrc;
+        }
+      }
+      
+      startProgress() {
+        if (!this.options.showProgress) return;
+        
+        const progressFill = document.getElementById('progress-fill');
+        const progressText = document.getElementById('progress-percentage');
+        
+        this.progressInterval = setInterval(() => {
+            if (this.currentProgress < 100) {
+                const increment = Math.random() * 15 + 5;
+                this.currentProgress = Math.min(100, this.currentProgress + increment);
+                
+                if (progressFill) {
+                    progressFill.style.width = `${this.currentProgress}%`;
+                }
+                
+                if (progressText) {
+                    progressText.textContent = `${Math.round(this.currentProgress)}%`;
+                }
+                
+                if (this.currentProgress > 90) {
+                    clearInterval(this.progressInterval);
+                    this.finishProgress();
+                }
+            }
+        }, 100);
+      }
+      
+      finishProgress() {
+        setTimeout(() => {
+            const progressFill = document.getElementById('progress-fill');
+            const progressText = document.getElementById('progress-percentage');
+            
+            if (progressFill) progressFill.style.width = '100%';
+            if (progressText) progressText.textContent = '100%';
+            
+            if (this.options.onComplete) {
+                this.options.onComplete();
+            }
+        }, 200);
+      }
+      
+      startTextRotation() {
+        if (this.options.loadingTexts.length <= 1) return;
+        
+        const loadingTextEl = document.getElementById('loading-text');
+        
+        this.textInterval = setInterval(() => {
+            this.currentTextIndex = (this.currentTextIndex + 1) % this.options.loadingTexts.length;
+            
+            if (loadingTextEl) {
+                loadingTextEl.style.opacity = '0';
+                
+                setTimeout(() => {
+                    loadingTextEl.textContent = this.options.loadingTexts[this.currentTextIndex];
+                    loadingTextEl.style.opacity = '1';
+                }, 200);
+            }
+        }, 800);
+      }
+      
+      startAutoHide() {
+        setTimeout(() => {
+            this.hide();
+        }, this.options.duration);
+      }
+      
+      hide() {
+        if (this.progressInterval) clearInterval(this.progressInterval);
+        if (this.textInterval) clearInterval(this.textInterval);
+        
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.classList.add('fade-out');
+            
+            setTimeout(() => {
+                preloader.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                this.onPreloaderComplete();
+            }, 800);
+        }
+      }
+      
+      onPreloaderComplete() {
+        console.log('LUYU Preloader completed!');
+        
+        // Initialize app jika diperlukan
+        if (typeof initializeApp === 'function') {
+            initializeApp();
+        }
+      }
+      
+      // Public methods
+      setProgress(percentage) {
+        this.currentProgress = Math.max(0, Math.min(100, percentage));
+        const progressFill = document.getElementById('progress-fill');
+        const progressText = document.getElementById('progress-percentage');
+        
+        if (progressFill) progressFill.style.width = `${this.currentProgress}%`;
+        if (progressText) progressText.textContent = `${Math.round(this.currentProgress)}%`;
+      }
+      
+      setLoadingText(text) {
+        const loadingTextEl = document.getElementById('loading-text');
+        if (loadingTextEl) {
+            loadingTextEl.textContent = text;
+        }
+      }
+      }
+      
+      // Global instance
+      let preloaderInstance = null;
+      
+      // Auto-initialize when DOM ready
+      document.addEventListener('DOMContentLoaded', function() {
+      // Prevent body scroll
+      document.body.style.overflow = 'hidden';
+      
+      // Initialize preloader
+      preloaderInstance = new PreloaderManager({
+        duration: 3500,
+        showProgress: true,
+        autoHide: true,
+        onComplete: function() {
+            console.log('App loaded successfully!');
+        }
+      });
+      });
+      
+      // Utility functions
+      function hidePreloader() {
+      if (preloaderInstance) preloaderInstance.hide();
+      }
+      
+      function setPreloaderProgress(percentage) {
+      if (preloaderInstance) preloaderInstance.setProgress(percentage);
+      }
+      
+      function updatePreloaderText(text) {
+      if (preloaderInstance) preloaderInstance.setLoadingText(text);
+      }
     </script>
   </body>
 </html>
