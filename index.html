@@ -7610,14 +7610,22 @@
       function shareWakafProgram(programId) {
       try {
       const program = wakafPrograms[programId];
+      const shareMessage = `Mari berwakaf untuk ${program.name} di ${program.location}. ${program.description} ${window.location.href}`;
       if (navigator.share) {
       navigator.share({
           title: `Wakaf ${program.name}`,
-          text: `Mari berwakaf untuk ${program.name} di ${program.location}. ${program.description}`,
+          text: shareMessage,
           url: window.location.href
       });
+      } else if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(shareMessage)
+          .then(() => showNotification('Program wakaf berhasil disalin ke clipboard', 'success'))
+          .catch(err => {
+          console.error('Error copying wakaf program:', err);
+          showNotification('Gagal menyalin program wakaf', 'error');
+          });
       } else {
-      showNotification('Program wakaf berhasil disalin ke clipboard', 'success');
+      showNotification('Fitur berbagi tidak didukung', 'error');
       }
       } catch (error) {
       console.error('Error in shareWakafProgram:', error);
