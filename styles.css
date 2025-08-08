@@ -1,0 +1,31 @@
+/* Project scaffold styles */
+
+/* Theme variables */
+:root {
+  --brand-green: #10b981;
+  --brand-blue: #3b82f6;
+}
+
+/* Example BEM block */
+.card {
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+.card__title {
+  font-weight: 700;
+}
+.card--primary {
+  border-color: var(--brand-green);
+}
+
+/* Utility tweaks (safe defaults) */
+img { max-width: 100%; height: auto; }
+
+/* Dark mode variants */
+.dark .card {
+  background: #1f2937; /* gray-800 */
+  border-color: #374151; /* gray-700 */
+  color: #f9fafb; /* gray-50 */
+}
+.dark .card__title { color: #f9fafb; }
