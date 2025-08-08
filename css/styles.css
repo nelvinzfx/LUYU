@@ -29,3 +29,224 @@ img { max-width: 100%; height: auto; }
   color: #f9fafb; /* gray-50 */
 }
 .dark .card__title { color: #f9fafb; }
+
+/* Glassmorphism theme (light + dark) */
+/* Global page background with soft gradients and blobs */
+body.glass {
+  position: relative;
+  background: radial-gradient(1200px 800px at 10% -10%, rgba(46, 204, 113, 0.12), transparent 60%),
+              radial-gradient(1200px 800px at 110% 10%, rgba(59, 130, 246, 0.12), transparent 60%),
+              linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(249, 250, 251, 1) 100%);
+  background-attachment: fixed;
+}
+body.glass::before,
+body.glass::after {
+  content: "";
+  position: fixed;
+  inset: -20vh -10vw auto -10vw;
+  height: 60vh;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(50% 50% at 20% 30%, rgba(46, 204, 113, 0.25), rgba(46, 204, 113, 0.05) 60%, transparent 70%),
+              radial-gradient(50% 50% at 80% 20%, rgba(59, 130, 246, 0.22), rgba(59, 130, 246, 0.05) 60%, transparent 70%);
+  filter: blur(60px);
+}
+body.glass::after {
+  inset: auto -10vw -20vh -10vw;
+  height: 55vh;
+  background: radial-gradient(50% 50% at 30% 70%, rgba(241, 196, 15, 0.22), rgba(241, 196, 15, 0.04) 60%, transparent 70%),
+              radial-gradient(50% 50% at 70% 60%, rgba(155, 89, 182, 0.18), rgba(155, 89, 182, 0.04) 60%, transparent 70%);
+}
+
+/* Dark theme background tuning */
+.dark body.glass,
+body.dark.glass { /* support if .dark is on body or html */
+  background: radial-gradient(1200px 800px at 0% -20%, rgba(16, 185, 129, 0.15), transparent 60%),
+              radial-gradient(1200px 800px at 120% 0%, rgba(59, 130, 246, 0.14), transparent 60%),
+              linear-gradient(180deg, #0b1220 0%, #0f172a 100%);
+}
+
+/* Glass header with blur */
+header.glass-header {
+  background: rgba(255, 255, 255, 0.55) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 10px 30px rgba(31, 38, 135, 0.08);
+}
+.dark header.glass-header {
+  background: rgba(17, 24, 39, 0.55) !important; /* gray-900 */
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.35);
+}
+
+/* Glassy header inputs and chips */
+header.glass-header input[type="text"],
+header.glass-header .chip,
+header.glass-header button:not(.bg-gradient-to-r) {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  backdrop-filter: blur(10px) saturate(140%);
+}
+.dark header.glass-header input[type="text"],
+.dark header.glass-header .chip,
+.dark header.glass-header button:not(.bg-gradient-to-r) {
+  background-color: rgba(17, 24, 39, 0.55) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+header.glass-header input[type="text"]:focus {
+  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.18) !important;
+}
+.dark header.glass-header input[type="text"]:focus {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18) !important;
+}
+
+/* Glass sidebar */
+.glass-sidebar {
+  /* Increase opacity in light mode for better contrast */
+  background: rgba(255, 255, 255, 0.65) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.35) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
+  box-shadow: 8px 0 30px rgba(31, 38, 135, 0.08);
+}
+.glass-sidebar .sidebar-item { color: #111827 !important; }
+.dark .glass-sidebar .sidebar-item { color: #d1d5db !important; }
+.glass-sidebar .sidebar-item svg { color: inherit; }
+.glass-sidebar .sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.5) !important;
+}
+.dark .glass-sidebar {
+  background: rgba(17, 24, 39, 0.55) !important;
+  border-right-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 8px 0 30px rgba(2, 6, 23, 0.45);
+}
+.glass-sidebar .sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.35) !important;
+}
+.dark .glass-sidebar .sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Glass cards (BEM .card) */
+.card {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+  box-shadow: 0 10px 28px rgba(31, 38, 135, 0.10);
+}
+.dark .card {
+  background: rgba(17, 24, 39, 0.42);
+  border-color: rgba(255, 255, 255, 0.10);
+  box-shadow: 0 10px 32px rgba(2, 6, 23, 0.55);
+}
+
+/* Glass modals */
+body.glass .modal > div {
+  background: rgba(255, 255, 255, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
+  box-shadow: 0 25px 50px rgba(31, 38, 135, 0.18);
+}
+.dark body.glass .modal > div,
+body.dark.glass .modal > div {
+  background: rgba(17, 24, 39, 0.5) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 25px 60px rgba(2, 6, 23, 0.6);
+}
+
+/* Driver panel glass */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.5) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.35) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  backdrop-filter: blur(16px) saturate(160%);
+  box-shadow: -10px 0 30px rgba(31, 38, 135, 0.10) !important;
+}
+.dark .glass-panel {
+  background: rgba(17, 24, 39, 0.48) !important;
+  border-left-color: rgba(255, 255, 255, 0.10) !important;
+  box-shadow: -10px 0 36px rgba(2, 6, 23, 0.55) !important;
+}
+
+/* Toasts / notifications as glass */
+#notification-container > * {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
+  box-shadow: 0 12px 30px rgba(31, 38, 135, 0.15);
+  border-radius: 0.75rem;
+}
+.dark #notification-container > * {
+  /* dark styles remain below */
+}
+.dark #notification-container > * {
+  background: rgba(17, 24, 39, 0.5);
+  border-color: rgba(255, 255, 255, 0.10);
+  box-shadow: 0 12px 34px rgba(2, 6, 23, 0.6);
+  color: #e5e7eb; /* gray-200 for readability in dark */
+}
+
+/* Improve light mode text readability in glass toasts */
+/* Light mode only: ensure both html and body are NOT .dark */
+html:not(.dark) body:not(.dark) #notification-container > * {
+  color: #111827; /* gray-900 */
+}
+html:not(.dark) body:not(.dark) #notification-container > * .text-gray-700,
+html:not(.dark) body:not(.dark) #notification-container > * .text-gray-600,
+html:not(.dark) body:not(.dark) #notification-container > * .text-gray-500,
+html:not(.dark) body:not(.dark) #notification-container > * .text-gray-400 {
+  color: #1f2937 !important; /* gray-800 */
+}
+
+/* Table headers glass */
+.data-table th {
+  background-color: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
+}
+.dark .data-table th {
+  background-color: rgba(31, 41, 55, 0.5);
+}
+
+/* Table container slight glass */
+.data-table {
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(8px) saturate(130%);
+  backdrop-filter: blur(8px) saturate(130%);
+  border-radius: 0.75rem;
+}
+.dark .data-table {
+  background: rgba(17, 24, 39, 0.35);
+}
+
+/* Optional: glassy input feel inside glass surfaces */
+.card input,
+.card select,
+.card textarea,
+body.glass .modal input,
+body.glass .modal select,
+body.glass .modal textarea {
+  background-color: rgba(255, 255, 255, 0.65) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+.dark .card input,
+.dark .card select,
+.dark .card textarea,
+.dark body.glass .modal input,
+.dark body.glass .modal select,
+.dark body.glass .modal textarea {
+  background-color: rgba(31, 41, 55, 0.65) !important; /* gray-800 */
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Subtle hover lift for glass cards */
+.card.card--primary:hover,
+.card:hover {
+  transform: translateY(-2px);
+  transition: transform 160ms ease;
+}
