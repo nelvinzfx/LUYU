@@ -1,16 +1,17 @@
 # LUYU — Platform Ojol Syariah (Frontend Demo)
 
 ![Status](https://img.shields.io/badge/status-active-success)
-![Stack](https://img.shields.io/badge/stack-HTML5%20%7C%20Vanilla%20JS%20%7C%20TailwindCSS-blue)
-![Charts](https://img.shields.io/badge/charts-Chart.js-orange)
+[![Demo](https://img.shields.io/badge/demo-live-blueviolet?logo=google-chrome&logoColor=white)](https://luyu-udo6o.kinsta.page/)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?logo=tailwindcss&logoColor=white)
+![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?logo=chartdotjs&logoColor=white)
 ![Design](https://img.shields.io/badge/design-Glassmorphism%20%2B%20Dark--Mode-6f42c1)
-![Demo](https://img.shields.io/badge/demo-live-blueviolet)
 
 LUYU adalah prototipe antarmuka (single‑page style) untuk platform ojek online berbasis prinsip syariah. Proyek ini berfokus pada pengalaman pengguna yang modern: tema glassmorphism + blur, dark mode, progres bar animated glow, preloader interaktif, dan modul‑modul halaman seperti Dashboard, Peta Cluster, Pesanan, Dompet Syariah, Analitik, Zakat/Infaq, Wakaf, dan Kajian Online.
 
 ## Live Demo
-- Production: https://your-domain.example/luyu
-- GitHub Pages (contoh pola): https://<username>.github.io/<repo>/
+- Production: https://luyu-udo6o.kinsta.page/
 
 ## Fitur Utama
 - Preloader interaktif dengan progres bar animasi glow dan teks dinamis.
